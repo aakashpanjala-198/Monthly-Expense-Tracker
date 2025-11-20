@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker.ui.theme
+package com.monica.monthlyexpensetracker.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

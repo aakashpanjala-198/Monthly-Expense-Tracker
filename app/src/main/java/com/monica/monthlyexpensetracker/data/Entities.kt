@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker.data
+package com.monica.monthlyexpensetracker.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -45,5 +45,8 @@ data class ExpenseEntry(
     val category: String = "",
     @ColumnInfo(name = "spent_at") val spentAt: Long = System.currentTimeMillis()
 )
+
+
+
 
 

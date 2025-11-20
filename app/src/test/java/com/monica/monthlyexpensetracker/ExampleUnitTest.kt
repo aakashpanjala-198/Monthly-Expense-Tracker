@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker
+package com.monica.monthlyexpensetracker
 
 import org.junit.Test
 

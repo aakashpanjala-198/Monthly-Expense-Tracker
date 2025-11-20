@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker.screens
+package com.monica.monthlyexpensetracker.screens
 
 import android.app.DatePickerDialog
 import androidx.compose.foundation.background
@@ -57,8 +57,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.easy.monthlyexpensetracker.data.CycleDigest
-import com.easy.monthlyexpensetracker.data.ExpenseEntry
+import com.monica.monthlyexpensetracker.data.CycleDigest
+import com.monica.monthlyexpensetracker.data.ExpenseEntry
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.text.SimpleDateFormat

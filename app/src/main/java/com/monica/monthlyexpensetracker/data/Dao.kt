@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker.data
+package com.monica.monthlyexpensetracker.data
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -58,5 +58,8 @@ interface ExpenseDao {
     @Delete
     suspend fun delete(entry: ExpenseEntry)
 }
+
+
+
 
 

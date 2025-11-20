@@ -198,20 +198,32 @@ These interactions provide the required functionality: editing income, editing/d
 
 ### 8.1 Data preparation
 
-`ConstellationChartScreen` receives a list of `(CycleRecord, totalExpenses)` pairs. It sorts them by year/month descending and maps them into `ChartPoint` objects (label, income, expenses). A sliding window of up to four points is displayed at a time.
+`ConstellationChartScreen` receives a list of `(CycleRecord, totalExpenses)` pairs. It sorts them by year/month descending and maps them into `ChartPoint` objects (label, income, expenses). The chart displays a maximum of four months at a time, showing the most recent cycles.
 
-### 8.2 UI layout
+### 8.2 Custom Canvas Implementation
 
-* Top row features a back button and an action icon (purely decorative for balance).
-* Instructional text describes the drag gesture.
-* `Box` containing `OrbitChart`:
-  * Square canvas with a radial gradient background shaped by `MaterialTheme.shapes.extraLarge`.
-  * `pointerInput` with `detectHorizontalDragGestures` to adjust the window offset, enabling the “single-touch drag” requirement.
-  * Axes, grid lines, and labels rendered manually inside `Canvas`.
-  * Two neon lines (income purple, expenses pink) with circular markers at each data point.
-* `LegendRow` explains color mapping.
+**Important:** The chart uses **custom canvas drawing with no external libraries**. All drawing is performed using built-in Jetpack Compose Canvas APIs:
 
-This chart design (constellation theme with radial background) differs sharply from previous apps while still meeting the assignment’s line-chart requirement.
+* `androidx.compose.foundation.Canvas` - The main drawing surface (part of official Android Compose library)
+* `drawLine()` - Draws axes and grid lines
+* `drawPath()` - Draws income and expense trend lines
+* `drawCircle()` - Draws data point markers
+* `drawText()` - Renders axis labels (months on x-axis, amounts on y-axis)
+
+**No third-party charting libraries are used** (no MPAndroidChart, AnyChart, Victory Charts, etc.). The implementation is entirely custom-built using only official Android/AndroidX libraries.
+
+### 8.3 UI layout
+
+* Top row features a back button and the title "Income/Expenses".
+* `Box` containing `IncomeExpensesChart`:
+  * **Square aspect ratio** - The chart maintains a 1:1 aspect ratio using `Modifier.aspectRatio(1f)`.
+  * **X-axis (months)** - Displays month labels for up to 4 months maximum.
+  * **Y-axis (amounts)** - Shows amount labels with grid lines for easy reading.
+  * Axes, grid lines, and labels are rendered manually inside `Canvas` using custom drawing code.
+  * Two lines (income purple, expenses pink) with circular markers at each data point.
+* `LegendRow` explains color mapping (Income vs Expenses).
+
+This chart design uses custom canvas drawing to meet the assignment requirement of a custom composable with no external charting libraries, while providing a clean visualization of income vs expenses over time.
 
 ---
 
@@ -246,15 +258,17 @@ All data operations route through the repository, guaranteeing database persiste
 8. **Surplus display** — `BalanceCapsule` shows balance, and metrics recalculate automatically.
 9. **Auto-update on expense add** — flows in `CycleDigest` recompute totals; UI updates immediately.
 10. **Separate activity per month** — `CycleDetailActivity` shows an orbit-specific interface.
-11. **Custom chart activity** — `ConstellationChartActivity` hosts `OrbitChart`.
-12. **Two-line chart** — `OrbitChart` draws income and expense lines simultaneously.
-13. **SQLite database** — Room database with cycles and ledger entries.
-14. **Edit/delete expenses** — `ExpenseSheet` and delete `AlertDialog`.
-15. **Default month/year** — `createCycle` uses current calendar when not specified.
-16. **Single-touch drag chart** — drag gestures change the chart window.
-17. **Default expense date** — `ExpenseEntry` default plus `ExpenseSheet` initialises to current millis.
-18. **Remove/edit sheets** — `CycleEditorSheet` edits; `ConfirmDeletionDialog` removes.
-19. **Unique UI design** — neon aurora palette, carousel, capsule headers, and constellation chart ensure a distinct visual identity.
+11. **Custom chart activity** — `ConstellationChartActivity` hosts `IncomeExpensesChart` with custom canvas drawing (no external libraries).
+12. **Two-line chart** — `IncomeExpensesChart` draws income and expense lines simultaneously using custom Canvas APIs.
+13. **Custom canvas drawing** — Chart uses only built-in Compose Canvas (`androidx.compose.foundation.Canvas`) with `drawLine()`, `drawPath()`, `drawCircle()`, and `drawText()` methods. No third-party charting libraries.
+14. **SQLite database** — Room database with cycles and ledger entries.
+15. **Edit/delete expenses** — `ExpenseSheet` and delete `AlertDialog`.
+16. **Default month/year** — `createCycle` uses current calendar when not specified.
+17. **Chart displays max 4 months** — X-axis shows maximum of 4 months as required.
+18. **Square aspect ratio chart** — Chart maintains 1:1 aspect ratio using `Modifier.aspectRatio(1f)`.
+19. **Default expense date** — `ExpenseEntry` default plus `ExpenseSheet` initialises to current millis.
+20. **Remove/edit sheets** — `CycleEditorSheet` edits; `ConfirmDeletionDialog` removes.
+21. **Unique UI design** — neon aurora palette, carousel, capsule headers, and custom canvas chart ensure a distinct visual identity.
 
 ---
 
@@ -282,6 +296,10 @@ The clear separation between data, repository, and UI layers means these feature
 
 ## 13. Conclusion
 
-Orbit Ledger reuses the proven data and business logic from MonthLedger but reimagines the interface with a neon orbit aesthetic. The home screen’s carousel, the capsule detail header, and the constellation-style chart ensure the UX differs markedly from PocketSheets and FlowBalance. Each class described above aligns with the assignment’s checklists, and the documentation equips maintainers and reviewers with a comprehensive mental model of how the application works.
+Orbit Ledger reuses the proven data and business logic from MonthLedger but reimagines the interface with a neon orbit aesthetic. The home screen's carousel, the capsule detail header, and the custom canvas chart (built without external libraries) ensure the UX differs markedly from PocketSheets and FlowBalance. Each class described above aligns with the assignment's checklists, and the documentation equips maintainers and reviewers with a comprehensive mental model of how the application works.
+
+
+
+
 
 

@@ -1,6 +1,5 @@
-package com.easy.monthlyexpensetracker.screens
+package com.monica.monthlyexpensetracker.screens
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -63,7 +62,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.easy.monthlyexpensetracker.data.CycleRecord
+import com.monica.monthlyexpensetracker.data.CycleRecord
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.text.SimpleDateFormat

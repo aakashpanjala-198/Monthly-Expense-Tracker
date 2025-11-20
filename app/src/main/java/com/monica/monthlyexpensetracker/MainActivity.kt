@@ -1,4 +1,4 @@
-package com.easy.monthlyexpensetracker
+package com.monica.monthlyexpensetracker
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.easy.monthlyexpensetracker.screens.AuroraHomeScreen
-import com.easy.monthlyexpensetracker.screens.HomeUiState
-import com.easy.monthlyexpensetracker.screens.buildHomeUiState
-import com.easy.monthlyexpensetracker.ui.theme.MonthlyExpenseTrackerTheme
-import com.easy.monthlyexpensetracker.viewmodel.CyclesViewModel
+import com.monica.monthlyexpensetracker.screens.AuroraHomeScreen
+import com.monica.monthlyexpensetracker.screens.buildHomeUiState
+import com.monica.monthlyexpensetracker.ui.theme.MonthlyExpenseTrackerTheme
+import com.monica.monthlyexpensetracker.viewmodel.CyclesViewModel
 
 class MainActivity : ComponentActivity() {
 
