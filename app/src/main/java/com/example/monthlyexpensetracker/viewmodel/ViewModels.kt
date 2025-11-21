@@ -1,15 +1,15 @@
-package com.monica.monthlyexpensetracker.viewmodel
+package com.example.monthlyexpensetracker.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.monica.monthlyexpensetracker.data.CycleDigest
-import com.monica.monthlyexpensetracker.data.CycleRecord
-import com.monica.monthlyexpensetracker.data.ExpenseEntry
-import com.monica.monthlyexpensetracker.data.OrbitDatabase
-import com.monica.monthlyexpensetracker.data.OrbitRepository
+import com.example.monthlyexpensetracker.data.CycleDigest
+import com.example.monthlyexpensetracker.data.CycleRecord
+import com.example.monthlyexpensetracker.data.ExpenseEntry
+import com.example.monthlyexpensetracker.data.OrbitDatabase
+import com.example.monthlyexpensetracker.data.OrbitRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn

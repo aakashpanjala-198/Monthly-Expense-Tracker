@@ -1,4 +1,4 @@
-package com.monica.monthlyexpensetracker.screens
+package com.example.monthlyexpensetracker.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +30,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.monica.monthlyexpensetracker.data.CycleRecord
+import com.example.monthlyexpensetracker.data.CycleRecord
 import kotlin.math.max
 
 data class ChartPoint(

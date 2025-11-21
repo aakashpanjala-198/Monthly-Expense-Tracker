@@ -1,4 +1,4 @@
-package com.monica.monthlyexpensetracker.ui.theme
+package com.example.monthlyexpensetracker.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.monica.monthlyexpensetracker
+package com.example.monthlyexpensetracker
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,10 +7,10 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.monica.monthlyexpensetracker.data.CycleRecord
-import com.monica.monthlyexpensetracker.screens.ConstellationChartScreen
-import com.monica.monthlyexpensetracker.ui.theme.MonthlyExpenseTrackerTheme
-import com.monica.monthlyexpensetracker.viewmodel.CyclesViewModel
+import com.example.monthlyexpensetracker.data.CycleRecord
+import com.example.monthlyexpensetracker.screens.ConstellationChartScreen
+import com.example.monthlyexpensetracker.ui.theme.MonthlyExpenseTrackerTheme
+import com.example.monthlyexpensetracker.viewmodel.CyclesViewModel
 
 class ConstellationChartActivity : ComponentActivity() {
     private val cyclesViewModel: CyclesViewModel by viewModels()

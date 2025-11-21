@@ -1,4 +1,4 @@
-package com.monica.monthlyexpensetracker.data
+package com.example.monthlyexpensetracker.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

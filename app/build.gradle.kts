@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.monica.monthlyexpensetracker"
+    namespace = "com.example.monthlyexpensetracker"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.monica.monthlyexpensetracker"
+        applicationId = "com.example.monthlyexpensetracker"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
